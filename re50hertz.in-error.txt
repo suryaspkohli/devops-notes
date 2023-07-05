@@ -1,0 +1,4 @@
+1- if data is not updating in ftp dashboard in re50hertz.in url (https://re50hertz.in/SOLAR_UI/ftpDashboard) 
+then start the    AWS-RE > spfs-ftp-poc > restart.
+2- if any batchjob is stooped in re50hertz.in url then restart the batch like for schdulemail start the schdulebatch from Portainer.
+3- 

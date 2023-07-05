@@ -1,0 +1,5 @@
+  994  yum remove forticlient * -y
+  995  yum remove forticlient
+  996  sudo yum-config-manager --add-repo https://repo.fortinet.com/repo/7.0/centos/8/os/x86_64/fortinet.repo
+  997  yum install forticlient
+

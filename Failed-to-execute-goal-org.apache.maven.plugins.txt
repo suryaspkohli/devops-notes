@@ -1,0 +1,25 @@
+++++++++Error in maven for
+
+ERROR org.apache.maven.cli.MavenCli - Failed to execute goal org.apache.maven.plugins:maven-install-plugin:2.4:install (default-install) on project EPM-webapp: Failed to install metadata com.hertz.epm:EPM-webapp:1.12-SNAPSHOT/maven-metadata.xml: Could not parse metadata /var/lib/jenkins/.m2/repository/com/hertz/epm/EPM-webapp/1.12-SNAPSHOT/maven-metadata-local.xml: in epilog non whitespace content is not allowed but got n (position: END_TAG seen ...</metadata>\nn... @21:2)  -> [Help 1]
+
+ ERROR: Couldn't execute Maven task. RuntimeException: Maven build failed with exit code 1
+
+Caused: java.lang.RuntimeException: Maven build failed. Couldn't execute Maven task. RuntimeException: Maven build failed with exit code 1
+	at org.jfrog.hudson.pipeline.common.Utils.launch(Utils.java:285)
+
+
+
++++Solution
+
+-go to jenkins
+
+- go to this path
+
+/var/lib/jenkins/.m2/repository/com/hertz/epm/EPM-webapp/1.12-SNAPSHOT/maven-metadata-local.xml
+
+
+- and delete last line till meta data.
+
+- save and run build again.
+
+

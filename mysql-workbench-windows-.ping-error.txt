@@ -1,0 +1,6 @@
+# Trouble error in windows for mysqlworkbench 
+
+error is for .png file.
+
+just go to contorl panel > workbench > repair.
+

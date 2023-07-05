@@ -1,0 +1,47 @@
+1- mongo db asset prod 164.52.202.12
+
+/home/dba/MONGO-BKP
+ls -lrth
+[root@e2e-70-12 MONGO-BKP]# ls -lrth
+
+-rw-r--r-- 1 root root 61G Jan 29 00:42 assetmgmt_2023-01-28_2030.gz
+-rw-r--r-- 1 root root 61G Jan 30 00:39 assetmgmt_2023-01-29_2030.gz
+remove old bkp from past one day.
+rm -rf assetmgmt_2023-01-28_2030.gz
+
+2- epm -prod
+
+$EPM_HOME/files/weather 
+ ls
+ cd IMD_ALL_INDIA/processed/
+ ls -lrth
+ ls -lrth /EPMDATA/Weather/Weather-Backup/IMD_ALL_INDIA/processed/*20230203*
+ ls -lrth /EPMDATA/Weather/Weather-Backup/IMD_ALL_INDIA/processed/*20230204*
+ ls -lrth /EPMDATA/Weather/Weather-Backup/IMD_ALL_INDIA/processed/*20230205*
+ rm -rf *
+
+
+ df -TH
+ history
+ cd ../..
+ cd NCM/
+ du -sh * | grep G
+ cd ALL_INDIA_COMMON_PARAMETER/
+ cd $EPM_HOME/files 
+ du -sh * | grep G
+ cd 25KM/
+ du -sh * | grep G
+ cd weather/
+ rm -rf processed/*
+ ls -lrth
+ cd IMD_ALL_INDIA/
+ ls -lrth
+ cd input/ConvertedNC/
+ cd processed/
+ du -sh * | grep G
+ ls -lrth
+ rm -rf *202301*
+ df -TH
+
+
+3 - 
