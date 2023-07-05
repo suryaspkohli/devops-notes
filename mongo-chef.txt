@@ -1,0 +1,18 @@
+download and copy the mongo-chef pkg in opt dir
+
+chmod -R 777 mongochef-4.3.0-linux-x64-dist/
+ln -s /opt/mongochef-4.3.0-linux-x64-dist/bin/mongochef.sh /usr/bin/mongochef
+vim /usr/share/applications/mongochef.desktop   --->>>
+
+[Desktop Entry]
+Version=3T
+Name=Mongo Chef
+Exec=/usr/bin/mongochef
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Network;WebBrowser;
+X-Desktop-File-Install-Version=0.15
+Icon=/opt/mongochef-4.3.0-linux-x64-dist/index.jp
+
+

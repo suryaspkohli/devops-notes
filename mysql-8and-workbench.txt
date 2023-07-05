@@ -1,0 +1,19 @@
+  curl -sSLO https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm
+  md5sum mysql80-community-release-el7-5.noarch.rpm
+  sudo rpm -ivh mysql57-community-release-el7-9.noarch.rpm
+  ls -lrth
+  yum install mysql80-community-release-el7-5.noarch.rpm
+  sudo yum install mysql-server
+  sudo systemctl start mysqld
+  sudo systemctl enable mysqld
+  sudo systemctl status mysqld
+  sudo grep 'temporary password' /var/log/mysqld.log
+  sudo mysql_secure_installation ----> copy and paste the temp pasword and press y
+  mysql -uroot -p
+  mysql --version
+  exit
+  wget https://repo.mysql.com/mysql80-community-release-el7-1.noarch.rpm
+  sudo rpm -Uvh  mysql80-community-release-*
+  sudo yum install mysql-workbench -y
+
+

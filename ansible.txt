@@ -1,0 +1,7 @@
+---------------------------------------------------------------------------install ansible on centos 7 -------------------------------------------------------------------------
+
+1- sudo yum install epel-release
+
+2- sudo yum install ansible -y
+
+3- ansible --version

@@ -1,0 +1,353 @@
+   1  ssh-keygen 
+    2  su - vijay 
+    3  vim .ssh/authorized_keys
+    4  chmod 600 .ssh/authorized_keys
+    5  lsblk 
+    6  mkdir /home1
+    7  mount /dev/sda5 /home1
+    8  ls /home1
+    9  ls /home1/nitin/
+   10  vim /etc/fstab 
+   11  mount -av
+   12  yum update -x 'kernel*' -y
+   13  ip a
+   14  yum update -x 'kernel*'
+   15  init 6
+   16  ps aux | grep yum
+   17  kill -9 11480
+   18  ping google.com
+   19  ping 172.16.0.1
+   20  date
+   21  date -s "Sun Jan 29 07:56:31 IST 2023"
+   22  hwclock -w
+   23  ps aux | grep yum
+   24  yum install thunderbird
+   25  ls -lrth /home/vijay/
+   26  ls -lrth /home/vijay/.thunderbird/
+   27  ls -lrth /home1/vijay/.thunderbird/
+   28  rm -rf /home/vijay/.thunderbird/*
+   29  cp -r /home1/vijay/.thunderbird/ /home/vijay/.thunderbird/
+   30  ls -ldh /home/vijay/.thunderbird/
+   31  ls -lth /home/vijay/.thunderbird/
+   32  ls -lrth /home/vijay/.thunderbird/
+   33  du -sh /home/vijay/.thunderbird/
+   34  cd /home/vijay/.thunderbird/
+   35  ll
+   36  ls -
+   37  ls -a
+   38  mv .thunderbird/* .
+   39  rm -rf .thunderbird/
+   40  ls
+   41  ll
+   42  chown -R vijay:vijay *
+   43  ls /home1/vijay/
+   44  ln -s /home1/vijay/sts-4.3.2.RELEASE/SpringToolSuite4 /home/vijay/Desktop/STS
+   45  ls /home/vijay/
+   46  java -version
+   47  rm -rf /usr/bin/java
+   48  rm -rf /etc/alternatives/java
+   49  cd /home/vijay/
+   50  tar -xzf jdk-8u211-linux-x64.tar.gz 
+   51  mv jdk1.8.0_211/ /opt/
+   52  cd /opt/
+   53  ln -s /opt/jdk1.8.0_211/bin/java /usr/bin/java
+   54  ln -s /opt/jdk1.8.0_211/bin/java /etc/alternatives/java
+   55  rpm -U http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm     && yum install  git
+   56  ping google.com
+   57  cd /opt/
+   58  ls
+   59  tar -xzf apache-maven-3.5.4-bin.tar.gz 
+   60  ls
+   61  mv apache-maven-3.5.4 apache-maven
+   62  vim /etc/profile
+   63  source /etc/profile
+   64  vim /home/vijay/.bashrc 
+   65  source /home/vijay/.bashrc 
+   66  ping google.com
+   67  ping 172.16.0.1
+   68  ping google.com
+   69  yum -y install https://packages.endpointdev.com/rhel/7/os/x86_64/endpoint-repo.x86_64.rpm
+   70  yum install git
+   71  git --version
+   72  java -version
+   73  echo $JAVA_HOME 
+   74  l
+   75  ls
+   76  yum localinstall google-chrome-stable_current_x86_64.rpm 
+   77  cd /opt/
+   78  ls
+   79  mb /root/mongochef-4.3.0-linux-x64-dist/ .
+   80  mv /root/mongochef-4.3.0-linux-x64-dist/ .
+   81  ls
+   82  chmod -R 777 mongochef-4.3.0-linux-x64-dist/
+   83  ln -s /opt/mongochef-4.3.0-linux-x64-dist/bin/mongochef.sh /usr/bin/mongochef
+   84  vim vim /usr/share/applications/mongochef.desktop
+   85  vim /usr/share/applications/mongochef.desktop
+   86  vim /etc/profile.d/maven.sh
+   87  chmod +x /etc/profile.d/maven.sh
+   88  source /etc/profile.d/maven.sh
+   89   mvn --version
+   90  yum -y install https://packages.endpointdev.com/rhel/7/os/x86_64/endpoint-repo.x86_64.rpm
+   91  wget https://repo.mysql.com/mysql80-community-release-el8-1.noarch.rpm
+   92  ls
+   93  rm -rf mysql80-community-release-el8-1.noarch.rpm 
+   94  wget https://repo.mysql.com/mysql80-community-release-el7-1.noarch.rpm
+   95  yum localinstall mysql80-community-release-el7-1.noarch.rpm
+   96  yum install -y epel-release
+   97  yum repolist enabled | grep "mysql.*-community.*"
+   98  yum install mysql-community-server
+   99  vim /etc/yum.repos.d/mysql-community.repo 
+  100  yum install mysql-community-server
+  101  service mysqld start
+  102  systemctl enable mysqld.service
+  103  grep 'temporary password' /var/log/mysqld.log
+  104  mysql_secure_installation
+  105  mysql -uroot -pAdmin@1212
+  106  yum install mysql-workbench-community
+  107  sestatus 
+  108  systemctl stop firewalld
+  109  systemctl disable firewalld
+  110  setenforce 0
+  111  vim /etc/selinux/config
+  112  ssh root@172.16.1.160
+  113  rm -rf /home/vijay/Desktop/STS 
+  114  cd /home/vijay/
+  115  ls
+  116  tar -xzf spring-tool-suite-4-4.3.2.RELEASE-e4.12.0-linux.gtk.x86_64.tar.gz 
+  117  ls
+  118  ll
+  119  chown -R vijay:vijay sts-4.3.2.RELEASE/;
+  120  ln -s /home/vijay/sts-4.3.2.RELEASE/SpringToolSuite4 /home/vijay/Desktop/
+  121  ping 172.16.0.1
+  122  ping google.com
+  123  setfacl -m u:vijay:rx /home
+  124  setfacl -m u:vijay:rx /home1
+  125  setfacl -R -m u:vijay:rwx /home1/vijay/
+  126  history
+  127  mysql -version
+  128  mysql --version
+  129  exit
+  130  history
+  131  vim /etc/fstab
+  132  ls -lrth
+  133  cd /home
+  134  ls -lrth
+  135  vim /etc/profile
+  136  vim /home/vijay/.bashrc
+  137  mvn -v
+  138  ls -lrth
+  139  cd
+  140  ls -lrth
+  141  pwd
+  142  vim .ssh/authorized_keys 
+  143  ls -lrth
+  144  exit
+  145  cd /opt/
+  146  ls -lrth
+  147  exit
+  148  history
+  149  cd /opt/
+  150  ls -lrth
+  151  pwd
+  152  exit
+  153  cd /opt/
+  154  cd
+  155  history
+  156  exit
+  157  ls /home
+  158  cd /home/vijay/
+  159  ls
+  160  ll
+  161  cd Hertz_Home/
+  162  ls
+  163  cd epm/
+  164  pwd
+  165  vim /etc/profile
+  166  source /etc/profile
+  167  vim /home/vijay/.bashrc 
+  168  source /home/vijay/.bashrc 
+  169  echo $EPM_HOME 
+  170  date
+  171  date -s "Mon Jan 30 11:33:22 IST 2023"
+  172  hwclock -w
+  173  exit
+  174  cd /opt/
+  175  ls -lrth
+  176  exit
+  177  vim /usr/share/applications/mongochef.desktop
+  178  exit
+  179  history
+  180  exit
+  181  ps aux | grep chrome
+  182  free -h
+  183  df -Th
+  184  top -c
+  185  free -h
+  186  exit
+  187  cd
+  188  top -c
+  189  ps aux | grep chrome
+  190  date
+  191  exit
+  192  vim /etc/profile
+  193  history
+  194  vim /home/vijay/.bashrc
+  195  vim /etc/profile
+  196  ssh root@101.53.142.42
+  197  exit
+  198  su - vijay
+  199  cd $EPM_HOME
+  200  ls -lrth
+  201  cd files/
+  202  ls -lrth
+  203  cd northzone/
+  204  ls -lrth
+  205  cd ..
+  206  cd
+  207  exit
+  208  cd .ssh/
+  209  cat id_rsa.pub 
+  210  cd
+  211  passwd root
+  212  exit
+  213  ssh vijayp@216.48.182.237
+  214  exit
+  215  ssh vijay@216.48.182.237
+  216  su - vijay
+  217  exit
+  218  ssh vijay@216.48.182.237
+  219  su - vijay
+  220  exit
+  221  ssh vijayp@216.48.182.237
+  222  exit
+  223  vim .ssh/authorized_keys 
+  224  cd .ssh/
+  225  ls -lrth
+  226  cat id_rsa.pub 
+  227  cd
+  228  su - vijayp
+  229  useradd vijayp
+  230  su - vijayp
+  231  cd /home
+  232  ls -lrth
+  233  userdel -rf vijayp 
+  234  ls -lrth
+  235  cd
+  236  exit
+  237  cd /opt/
+  238  wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
+  239  tar -xzf postman.tar.gz
+  240  rm postman.tar.gz
+  241  ls -lrth
+  242  sudo ln -s /opt/Postman/Postman /usr/bin/postman
+  243  yum install libXScrnSaver-1.2.2-6.1.el7.x86_64
+  244  vim /usr/share/applications/postman.desktop
+  245  exit
+  246  cd /opt/
+  247  ls -lrth
+  248  cd
+  249  cd /home/vijay/
+  250  cd Downloads/
+  251  wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
+  252  ls -lrth
+  253  rm -rf postman.tar.gz 
+  254  ls -lrth
+  255  ls 
+  256  cd ..
+  257  ls -lrth
+  258  cd Downloads/
+  259  ls -lrth
+  260  cd
+  261  exit
+  262  cd /home/vijay/
+  263  ls -lrth
+  264  cd /Down
+  265  cd Downloads/
+  266  ls -lrth
+  267  cd /opt/
+  268  ls -lrth
+  269  exit
+  270  yum install zabbix-agent
+  271  cd /etc/
+  272  ls -lrth
+  273  vim zabbix_agentd.conf 
+  274  vim zabbix_agentd.conf
+  275  hostname
+  276  vim zabbix_agentd.conf
+  277  systemctl restart zabbix-agent
+  278  systemctl enable zabbix-agent
+  279  cd
+  280  hostname
+  281  exit
+  282  curl ifconfig.me
+  283  exit
+  284  ls
+  285  cd 
+  286  ls
+  287  cd /opt/
+  288  ls
+  289  cp /home/vijay/apache-tomcat-8.5.41.zip .
+  290  ls
+  291  unzip apache-tomcat-8.5.41.zip 
+  292  ls
+  293  mv apache-tomcat-8.5.41 apache-tomcat8_5
+  294  ls
+  295  chown -R vijay:vijay apache-tomcat8_5/
+  296  ls
+  297  ll
+  298  chmod -R 755 apache-tomcat8_5/
+  299  l
+  300  ll
+  301  chmod +rwx apache-tomcat8_5/
+  302  ll
+  303  mkdir /home/vijay/Hertz_Home/hea
+  304  vim  /etc/profile
+  305  source  /etc/profile
+  306  vim /home/vijay/.bashrc 
+  307  source /home/vijay/.bashrc 
+  308  cd /opt/
+  309  exit
+  310  cd /opt/
+  311  ls -lrh
+  312  cd apache-tomcat8_5/
+  313  ls -lrth
+  314  cd bin/
+  315  ls -lrth
+  316  ./startup.sh 
+  317  exit
+  318  cd /opt/
+  319  cd apache-tomcat8_5/
+  320  cd bin/
+  321  ./shutdown.sh 
+  322  ps aux | grep tomcat
+  323  exit
+  324  history
+  325  eexit
+  326  exit
+  327  history
+  328  vim /etc/profile
+  329  history
+  330  cd /home/vijay/
+  331  cd
+  332  cd /opt/
+  333  ls -lrth
+  334  scp -r Avinash/ root@172.16.1.141:/home/surya
+  335  cd
+  336  sudo yum-config-manager --add-repo https://repo.fortinet.com/repo/7.0/centos/8/os/x86_64/fortinet.repo
+  337  sudo yum install forticlient -y
+  338  cat /home/vijay/.ssh/id_rsa.pub 
+  339  su - vijay 
+  340  su - vijay
+  341  curl ifconfig.me
+  342  exit
+  343  history
+  344  cd /opt/
+  345  ls -lrth
+  346  scp -r apache-maven-3.5.4-bin.tar.gz root@172.16.1.141:/mnt/
+  347  exit
+  348  vim /etc/profile
+  349  exit
+  350  history
+  351  exit
+  352  history
+

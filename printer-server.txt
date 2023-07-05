@@ -1,0 +1,64 @@
+
+---------------------------------------------------------------->>Configure Printer in Centos 7 <<------------------------------------------------------------------------------
+
+Step 1- install cups service in centos 7.
+
+------>>To install package CUPS (Common Unix Printing System) on CentOS Linux 7 machine for enable the printing service on CentOS Linux 7  machine, type the below mention command.
+
+
+# yum install cups -y
+
+#systemctl start cups
+#systemctl enable cups
+#systemctl status cups
+
+
+#vi /etc/cups/cupsd.conf
+
+----> go to line number 30 and 36 and add the below given line
+
+
+
+Allow @Local
+
+
+
+Note: disable the firewall and selinux.
+
+# systemctl restart cups
+# systemctl status cups
+
+
+------->> o scan and add printers from the local network start and enable service "cups-browsed", type the below mention command. if you enable the service "cups-browsed", the service "cups-browsed" automatically start after the reboot on CentOS Linux 7 machine and other Linux machines as well.
+
+# systemctl start cups-browsed
+# systemctl enable cups-browsed
+# systemctl status cups-browsed
+
+
+
+----->>To install the CUPS (Common Unix Printing System) drivers for Canon, Epson, HP and compatible printers. Type the below mention command.
+
+# yum install hplip
+# yum install gutenprint-cups
+
+
+# systemctl restart cups
+# systemctl status cups
+
+
+
+-------------------------------------------------------------->>>Now go to the Application bar in linux system and in application installer and search for printer.
+
+---
+
+
+
+
+
+
+
+
+
+
+

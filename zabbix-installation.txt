@@ -1,0 +1,194 @@
+Step 1 – Disable Or Permissive SELinux
+# setenforce 0
+
+Step 2 – Install and Configure Apache
+# yum -y install httpd
+
+Start & Enable the httpd service.
+# systemctl start httpd.service
+# systemctl enable httpd.service
+# systemctl status httpd.service
+
+Step 3 – Configure Needed Repositories, Install epel and remi repos.
+# wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+# yum -y install epel-release-latest-7.noarch.rpm
+# yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+
+Disable PHP 5 repositories and enable PHP 7.2 repo.
+# yum-config-manager --disable remi-php54
+# yum-config-manager --enable remi-php72
+
+Step 4 – Install PHP
+# yum install php php-pear php-cgi php-common php-mbstring php-snmp php-gd php-pecl-mysql php-xml php-mysql php-gettext php-bcmath
+
+Modify the PHP time Zone by editing the php.ini file.
+# vim /etc/php.ini
+
+Uncomment the following line and add your time zone.
+date.timezone = Asia/Kolkata
+max_execution_time = 600
+max_input_time = 600
+memory_limit =256M
+post_max_size = 32M
+upload_max_filesize = 16M
+
+Step 5 – Install MariaDB
+# yum --enablerepo=remi install mariadb-server
+
+Start the MariaDB service.
+# systemctl start mariadb.service
+Enable MariaDB on system boot.
+# systemctl enable mariadb
+
+Run the following command to secure MariaDB.
+# mysql_secure_installation
+
+Add a new root password and continue. Then it will ask a few questions. Type “Y” to agree to that.
+Login to DB server and verify.
+# mysql -u root -p
+
+Step 6 – Create a Database for Zabbix
+# create database zabbix_db; character set utf8 collate utf8_bin;
+
+Create a DB user and grant privileges.
+# create user 'zabbix'@'localhost' identified BY 'redhat';
+# grant all privileges on zabbix_db.* to zabbix@localhost ;
+
+Flush privileges.
+# flush privileges;
+
+Step 7 – Install Zabbix and needed dependencies
+Adding Zabbix repository. 
+# rpm -ivh https://repo.zabbix.com/zabbix/4.0/rhel/7/x86_64/zabbix-release-4.0-1.el7.noarch.rpm
+
+Install Zabbix.
+# yum install zabbix-server-mysql  zabbix-web-mysql zabbix-agent zabbix-get
+
+Step 8 –  Configure Zabbix
+Change Time Zone by editing the Zabbix Apache configuration file.
+# vim /etc/httpd/conf.d/zabbix.conf
+
+Uncomment the following line and add your Time Zone.
+php_value date.timezone Asia/Kolkata
+
+Restart HTTPD service.
+# systemctl restart httpd.service
+
+Generally, Zabbix installation package gives SQL file which includes an initial schema and data for the Zabbix server with MySQL.
+
+Change directory and go the Zabbix directory.
+# cd /usr/share/doc/zabbix-server-mysql-4.0.4/
+
+Import the MySQL dump file.
+# zcat create.sql.gz | mysql -u zabbix -p zabbix_db
+
+Now modify the Zabbix configuration file with Database details.
+# vim /etc/zabbix/zabbix_server.conf
+
+Modify the following parameters
+DBHost=localhost
+DBName=zabbix_db
+DBUser=zabbix
+DBPassword=redhat
+
+Then save and exit the file. Restart Zabbix service.
+# systemctl restart zabbix-server.service
+
+Enable Zabbix on system boot.
+# systemctl enable zabbix-server.service
+
+Modify firewall rules.
+# firewall-cmd --add-service={http,https} --permanent
+# firewall-cmd --add-port={10051/tcp,10050/tcp} --permanent
+# firewall-cmd --reload
+
+Now restart httpd service.
+# systemctl restart httpd
+
+Step 9 – Setup Zabbix
+You can access Zabbix using following URL:
+http://192.168.1.114/zabbix/
+
+Step 10 – Monitor Servers with Zabbix Agent
+Zabbix Agent collects the data from the client machine and sends them to the Zabbix Server.  
+-----------------------------
+Agent Configuration:
+
+# rpm -ivh https://repo.zabbix.com/zabbix/4.0/rhel/7/x86_64/zabbix-release-4.0-1.el7.noarch.rpm
+
+# yum install zabbix-agent
+
+Now modify the agent configuration file.
+# vim  /etc/zabbix/zabbix_agentd.conf
+
+Modify the following parameters. Replace IP and hostname with yours in the below command:
+Server=192.168.1.114
+ServerActive=192.168.1.114
+Hostname=Zabbix-Agent
+Save and exit the file.
+
+Restart Zabbix agent.
+# systemctl restart zabbix-agent
+Enable on system boot.
+# systemctl enable zabbix-agent
+
+Step 11 – Add host to monitor on Zabbix server
+Go to Configuration -) Hosts -) Create host.
+
+Then you will get the interface as follows:
+
+Add Hostname, Visible Name and agent interface IP. Select a group from the list. In our scenario, we are going to monitor the Ubuntu server. So we will select Linux servers from the list.
+
+Select and go to Template Tab. Then click on the select button and select “Template OS Linux” from the list.
+
+Click “add,” and it will list linked templates.
+
+Click on the update button to update.
+
+Step 12 – View Graphs
+Go to Monitoring -) Graphs. You can select needed group, host and graph to display the graphs.
+
+Congratulations! You have successfully configured Zabbix server and added hosts to monitor. Let us know your feedback in the comments below.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Note: during add host we have add template 
+
+- template-linux-server
+- template-OS-linux
+
+
+
+CREATE TABLE dbversion;
+
+create database zabbix_dbs;
+
+create user 'zabbix1'@'%' identified BY 'Password@123#';
+
+grant all privileges on zabbix_db.* to 'zabbix2'@'%' ;
+
+create user zabbix@localhost identified by 'Redhat@1212'
+
+create user 'zabbix2'@'%' identified BY 'Password@123#';
+
+zcat create.sql.gz | mysql -u zabbix2 -p zabbix_db
+
+
+
+
+
+
+

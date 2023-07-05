@@ -1,0 +1,10 @@
+  215  cat /etc/redhat-release 
+  216  wget https://repo.mysql.com//mysql80-community-release-el9-1.noarch.rpm 
+  217  dnf install mysql80-community-release-el9-1.noarch.rpm 
+  218  dnf install mysql-community-server 
+  219  systemctl start mysqld 
+  220  systemctl enable mysqld 
+  221  grep 'A temporary password is generated' /var/log/mysqld.log | tail -1
+  222  mysql_secure_installation 
+  223  yum install mysql-workbench-community
+

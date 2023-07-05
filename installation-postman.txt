@@ -1,0 +1,35 @@
+First part from https://blog.bluematador.com/posts/postman-how-to-install-on-ubuntu-1604/
+
+    wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
+    sudo tar -xzf postman.tar.gz -C /opt
+    rm postman.tar.gz
+    sudo ln -s /opt/Postman/Postman /usr/bin/postman
+
+But when launching postman from command prompt got an error:
+    [root@localhost Downloads]# postman
+    postman: error while loading shared libraries: libXss.so.1: cannot open shared object file: No such file or directory
+
+Found a solution at: https://www.centos.org/forums/viewtopic.php?t=61219
+    yum install libXScrnSaver-1.2.2-6.1.el7.x86_64
+Then launch postman from command prompt and it will bring up the Postman GUI
+Killing the open terminal will terminate Postman
+
+You can also create a postman.desktop file to add Postman to the list of Applications in the Gnome desktop
+vim /usr/share/applications/postman.desktop
+create postman.desktop as follows
+      [Desktop Entry]
+      Encoding=UTF-8
+      Name=Postman
+      Exec=postman
+      Icon=/opt/Postman/resources/app/assets/icon.png
+      Terminal=false
+      Type=Application
+      Categories=Development
+      
+Once postman has been made available to the Applications Menu on the Gnome Desktop, it can be added to the Applications/Favorites menu
+* Select the "Applications/Activities Overview" menu item
+* Select the "Show Applications" icon
+* Make sure the "All" button is selected then right click the Postman application and from the context menu, select the "Add to Favorites" menu item
+* Postman is now available from the "Applications/Favorites" menu item.
+
+

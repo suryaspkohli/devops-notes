@@ -1,0 +1,63 @@
+1- Create a file /etc/yum.repos.d/mongodb-org-4.0.repo to install MongoDB directly, using yum 
+
+ # vi /etc/yum.repos.d/mongodb-org-4.0.repo
+
+2- Now add the following repository file.
+
+[mongodb-org-4.0]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.0/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc
+
+3- Once the repo installed, run the following command to install MongoDB 4.0.
+
+ # yum install -y mongodb-org 
+
+4- Open file /etc/mongod.conf and verify below basic settings. If commented any settings, please un-comment it
+
+
+    
+# vi /etc/mongod.conf
+
+path: /var/log/mongodb/mongod.log
+port=27017
+dbpath=/var/lib/mongo
+
+5- Now it’s time to start the mongod process by issuing the following command
+
+# service mongod start
+
+6- You can make sure that the mongod process has been started successfully by verifying the contents of /var/log/mongodb/mongod.log log file for a line reading.
+
+7- Also you can start, stop or restart mongod process by issuing the following commands
+
+# service mongod start
+# service mongod stop
+# service mongod restart
+
+8- Now enable mongod process at system boot
+
+# systemctl enable mongod.service 
+# chkconfig mongod on 
+
+9- connect to your MongoDB shell using this cmd
+
+# mongo
+
+10- This command will connect to your MongoDB database. Run the following basic commands.
+
+> show dbs
+> show collections
+> show users
+> use <db name>
+> exit
+
+
+
+
+
+
+
+

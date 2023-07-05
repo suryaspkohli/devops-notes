@@ -1,0 +1,9 @@
+------------------------------------------------------------------------team-viewer----------------------------------------------------------------------------------------
+
+1- sudo rpm --import  https://dl.tvcdn.de/download/linux/signature/TeamViewer2017.asc 
+
+2- sudo yum install epel-release
+
+3- wget https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
+
+4- sudo yum localinstall ./teamviewer.x86_64.rpm

@@ -1,0 +1,12 @@
+[root@master ~]# sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 11.2M  100 11.2M    0     0  12.3M      0 --:--:-- --:--:-- --:--:-- 38.1M
+[root@master ~]# sudo chmod +x /usr/local/bin/docker-compose
+[root@master ~]# docker-compose --version
+docker-compose version 1.23.2, build 1110ad01
+[root@master ~]# 
+
+
+

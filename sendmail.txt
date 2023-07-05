@@ -1,0 +1,22 @@
+-----------------------------------------------------------------configure sendmail----------------------------------------------------------------------------------------
+
+1- sudo yum install sendmail
+
+
+2- go to vim /etc/mail/sendmail.mc  and uncomment these lines. 
+
+define(`SMART_HOST', `smtp.50hertz.in') ------> cgange domain-name
+
+define(`confAUTH_OPTIONS',`A p')
+TRUST_AUTH_MECH(`EXTERNAL DIGEST-MD5 CRAM-MD5 LOGIN PLAIN')
+define(`confAUTH_MECHANISMS',`EXTERNAL GSSAPI DIGEST-MD5 CRAM-MD5 LOGIN PLAIN')
+
+LOCAL_DOMAIN(`50-hertz066') ----> chnge hostname
+
+3- sudo m4 /etc/mail/sendmail.mc > /etc/mail/sendmail.cf
+
+4- sudo systemctl start sendmail
+
+
+5- echo "This is a test email" | mail -s "Test Email" surya.p@50hertz.in
+

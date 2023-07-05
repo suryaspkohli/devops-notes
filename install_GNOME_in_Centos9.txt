@@ -1,0 +1,3 @@
+1- yum install "Server with GUI"
+2- systemctl set-default graphical.target
+3- reboot
