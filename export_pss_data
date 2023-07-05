@@ -1,0 +1,48 @@
+########  Procedure to export WIND Scada data the PSS for a particular Month    ###########################
+
+1. Go to ftp.50hertz.in server.
+2.Now go to file using vim /home/PROPERTY_FILES/WIND/export-folder-path.properties.
+3. Now go edit the properties file and search report.scada.actual.schedule.data.info then change the date range
+4. open the export-scada jar file from location /home/DEPLOY/WIND/CURRENT/export-forecast-actual-batch.jar
+---->report.scada.actual.schedule.data.info=/home/wind/data/current/outgoing/REPORT,ALL-PS,final,BETWEEN-DATE,2022-06-14,2022-07-15
+5.now open the jar with name----->export-forecast-actual-batch.jar and search for the the file Spring-Quartz.xml and again serch the exportSCADAScheduleTrigger name then change the cron expression.
+6.Afterthat restart the jar and after completed the jobs kill the service.
+
+
+########  Procedure to export SOLAR Scada data the PSS for a particular Month    ###########################
+
+1. Go to ftp.50hertz.in server.
+2.Now go to file using vim /home/PROPERTY_FILES/SOLAR/scadaconfig.properties.
+3. Now  edit the properties file and search all.site.name and change the date
+all.site.name=ALL
+#all.site.name=ALL
+start.date=01/06/2022
+end.date=30/06/2022
+data.level=PS
+source.file.path=/home/wind/SOLAR/DATA/CURRENT/OUTGOING/export/SourceFile/
+final.file.path=/home/wind/SOLAR/DATA/CURRENT/OUTGOING/export/exportData/
+source.file.name=format.xlsx
+
+4. open the spfs-scada.jar file from /home/DEPLOY/SOLAR/CURRENT/SPFS-SCADA-1.jar and search the quartzJobSchedule.xml from file and open the file and again search scadaReportTrigger
+after find the scadaReportTrigger name then change the cron expression.
+5.now start the spfs-scada jar
+
+########  Procedure to export Karnataka Scada data the PSS for a particular Month    ###########################
+
+1. Delete the files only  from location /var/lib/mysql-files/KA_DATA on main database(3.6.48.236)
+2. login the mysql and use hawa_new then Run the command on mysql with change date format
+
+call `sp_ka_data_export_by_between_date`('2022-06-01','2022-06-30');
+
+output will get "/var/lib/mysql-files/KA_DATA" on MainDb server
+
+4. Before sync data  go to ftp server(/home/wind/data/current/outgoing/KA_DATA_EXPORT/KA_DATA) and backup to previous data
+5. After Backup delete all only files in folder then sync export data from main db to ftp server
+#cd  /var/lib/mysql-files/KA_DATA
+#scp -r * root@172.31.27.235:/home/wind/data/current/outgoing/KA_DATA_EXPORT/KA_DATA/
+
+4.Again data sync from main-DB to ftp server.
+
+
+
+
