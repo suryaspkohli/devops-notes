@@ -16,4 +16,7 @@ server {
 
 -------------
 
+
+make new file in /etc/nginx/conf.d directory as surya.conf
+after add the content restart the nginx
 note: all the firewall selinux should be stopped and port 80 also not busy
