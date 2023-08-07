@@ -1,0 +1,8 @@
+docker run -d -p 8084:8080 -v /:/rootfs:ro -v /var/run:/var/run:rw -v /sys:/sys:ro -v /var/lib/docker/:/var/lib/docker:ro --name=cadvisor google/cadvisor:latest
+ docker run -d -p 9100:9100 --name=node-exporter prom/node-exporter
+ docker run -d -p 9090:9090 -v /root/config/prometheus.yml:/etc/prometheus/prometheus.yml --name=prometheus prom/prometheus
+ docker run -d -p 3000:3000 --name=grafana grafana/grafana:latest
+ docker container start grafana
+ docker container stop grafana
+ docker container restart grafana
+ docker ps
